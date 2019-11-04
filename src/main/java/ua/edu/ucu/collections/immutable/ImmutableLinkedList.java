@@ -111,6 +111,9 @@ public class ImmutableLinkedList implements ImmutableList {
     //повертає елемент за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public Object get(int index){
+        if (this.len == 0){
+            throw new IndexOutOfBoundsException();
+        }
         indx(index);
         return getNode(index).value;
     }
@@ -119,6 +122,9 @@ public class ImmutableLinkedList implements ImmutableList {
     @Override
     public ImmutableLinkedList remove(int index){
         indx(index);
+        if (this.len == 0){
+            throw new IndexOutOfBoundsException();
+        }
         ImmutableLinkedList lstnew = copy();
         lstnew.len = this.len - 1;
         if (index == 0) {
@@ -134,6 +140,9 @@ public class ImmutableLinkedList implements ImmutableList {
     //змінює значення елементу за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public ImmutableList set(int index, Object e){
+        if (this.len == 0){
+            throw new IndexOutOfBoundsException();
+        }
         indx(index);
         ImmutableLinkedList lstnew = copy();
         lstnew.len = this.len;
