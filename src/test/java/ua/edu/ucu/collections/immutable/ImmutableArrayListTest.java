@@ -1,6 +1,9 @@
 package ua.edu.ucu.collections.immutable;
 
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class ImmutableArrayListTest {
@@ -113,6 +116,39 @@ public class ImmutableArrayListTest {
         int res =  lst.size();
         int exp = 3;
         assertEquals(exp, res);
+    }
+
+    @Test
+    public void testClearMethod() {
+        ImmutableArrayList res = (ImmutableArrayList) lst.clear();
+        ImmutableArrayList exp = empty;
+        assertArrayEquals(exp.toArray(), res.toArray());
+    }
+
+    @Test
+    public void testIsEmptyMethod() {
+        boolean res =  lst.isEmpty();
+        boolean exp = false;
+        assertEquals(exp, res);
+    }
+
+    @Test
+    public void testIsEmptyMethodEmpty() {
+        boolean res =  empty.isEmpty();
+        boolean exp = true;
+        assertEquals(exp, res);
+    }
+
+    @Test
+    public void testToArrayMethod() {
+        Object[] res =  lst.toArray();
+        Object[] exp = {1, 2, 3};
+        assertArrayEquals(exp, res);
+    }
+
+    @Test
+    public void testToStringMethod() {
+        assertEquals(Arrays.toString(new Object[] {1, 2, 3}), lst.toString());
     }
     
 }
