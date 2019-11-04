@@ -12,7 +12,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     public ImmutableLinkedList(Object[] c) {
         this.len = c.length;
-        if (c.length != 0){
+        if (c.length != 0) {
             this.head = new Node(c[0]);
             Node current = this.head;
             for (int i = 1; i < c.length; i++) {
@@ -76,20 +76,20 @@ public class ImmutableLinkedList implements ImmutableList {
 
     //додає елемент у кінець колекції
     @Override
-    public ImmutableLinkedList add(Object e){
+    public ImmutableLinkedList add(Object e) {
         return addAll(this.len, new Object[] {e});
     }
 
     //додає елемент до колекції за індексом,
     // та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableLinkedList add(int index, Object e){
+    public ImmutableLinkedList add(int index, Object e) {
         return addAll(index, new Object[] {e});
     }
 
     //додає масив елементів у кінець колекції
     @Override
-    public ImmutableLinkedList addAll(Object[] c){
+    public ImmutableLinkedList addAll(Object[] c) {
         return addAll(this.len, c);
     }
 
@@ -113,8 +113,8 @@ public class ImmutableLinkedList implements ImmutableList {
     //повертає елемент за індексом, та кидає виключну
     // ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public Object get(int index){
-        if (this.len == 0){
+    public Object get(int index) {
+        if (this.len == 0) {
             throw new IndexOutOfBoundsException();
         }
         indx(index);
@@ -124,9 +124,9 @@ public class ImmutableLinkedList implements ImmutableList {
     //видаляє елемент за індексом, та кидає виключну
     // ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableLinkedList remove(int index){
+    public ImmutableLinkedList remove(int index) {
         indx(index);
-        if (this.len == 0){
+        if (this.len == 0) {
             throw new IndexOutOfBoundsException();
         }
         ImmutableLinkedList lstnew = copy();
@@ -134,7 +134,7 @@ public class ImmutableLinkedList implements ImmutableList {
         if (index == 0) {
             lstnew.head = lstnew.head.next;
         }
-        else{
+        else {
             Node prev = lstnew.getNode(index -1);
             prev.next = prev.next.next;
         }
@@ -162,7 +162,7 @@ public class ImmutableLinkedList implements ImmutableList {
     @Override
     public int indexOf(Object e){
         Node current = this.head;
-        for (int i = 0; i < this.len; i ++) {
+        for (int i = 0; i < this.len; i++) {
             if (current.value == e) {
                 return i;
             }

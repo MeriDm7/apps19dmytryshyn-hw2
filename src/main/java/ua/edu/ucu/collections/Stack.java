@@ -5,22 +5,22 @@ import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 public class Stack {
     private ImmutableLinkedList stack;
 
-    public Stack(){
+    public Stack() {
         this.stack = new ImmutableLinkedList();
     }
 
-    public Stack(ImmutableLinkedList stack){
+    public Stack(ImmutableLinkedList stack) {
         this.stack = stack;
     }
 
-    public Object peek(){
-        if (stack.size() == 0){
+    public Object peek() {
+        if (stack.size() == 0) {
             throw new IndexOutOfBoundsException();
         }
         return stack.getLast();
     }
 
-    public Object pop(){
+    public Object pop() {
         if (stack.size() == 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -29,7 +29,7 @@ public class Stack {
         return last;
     }
 
-    public void push(Object e){
+    public void push(Object e) {
         this.stack = this.stack.addLast(e);
     }
 

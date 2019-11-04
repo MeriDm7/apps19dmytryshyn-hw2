@@ -5,11 +5,11 @@ import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 public class Queue {
     private ImmutableLinkedList queue;
 
-    public Queue(){
+    public Queue() {
         this.queue = new ImmutableLinkedList();
     }
 
-    public Queue(ImmutableLinkedList queue){
+    public Queue(ImmutableLinkedList queue) {
         this.queue = queue;
     }
 
@@ -20,7 +20,7 @@ public class Queue {
         throw new IndexOutOfBoundsException();
     }
 
-    public Object dequeue(){
+    public Object dequeue() {
         if (queue.size() > 0) {
             Object first = queue.getFirst();
             queue = queue.removeFirst();
@@ -29,7 +29,7 @@ public class Queue {
         throw new IndexOutOfBoundsException();
     }
 
-    public void enqueue(Object e){
+    public void enqueue(Object e) {
         queue = queue.addLast(e);
     }
 
