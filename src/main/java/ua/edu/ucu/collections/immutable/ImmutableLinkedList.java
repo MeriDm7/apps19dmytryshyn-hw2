@@ -228,19 +228,19 @@ public class ImmutableLinkedList implements ImmutableList {
         return addAll(this.len, new Object[] {e});
     }
 
-    public Object getFirst(){
+    public Object getFirst() {
         return get(0);
     }
 
-    public Object getLast(){
+    public Object getLast() {
         return get(this.len - 1);
     }
 
-    public ImmutableLinkedList removeFirst(){
+    public ImmutableLinkedList removeFirst() {
         return remove(0);
     }
 
-    public ImmutableLinkedList removeLast(){
+    public ImmutableLinkedList removeLast() {
         return remove(this.len - 1);
     }
 
