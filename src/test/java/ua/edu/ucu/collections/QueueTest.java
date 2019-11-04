@@ -23,6 +23,7 @@ public class QueueTest {
     @Test
     public void testDeQueue() {
         assertEquals(3, q.dequeue());
+        assertEquals(5, q.peek());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
