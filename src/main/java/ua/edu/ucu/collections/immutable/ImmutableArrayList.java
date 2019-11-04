@@ -6,7 +6,7 @@ public class ImmutableArrayList implements ImmutableList {
      private Object[] array;
 
     public ImmutableArrayList(Object[] array) {
-        this.array = array;
+        this.array = Arrays.copyOf(array, array.length);
     }
 
     public ImmutableArrayList() {
@@ -95,7 +95,7 @@ public class ImmutableArrayList implements ImmutableList {
     // який знайшов, або -1 у випадку відсутності)
     @Override
     public int indexOf(Object e) {
-        for(int i = 0; i < size(); i++) {
+        for (int i = 0; i < size(); i++) {
             if (array[i] == e) {
                 return i;
             }
@@ -105,7 +105,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     //розмір колекції
     @Override
-    public int size(){
+    public int size() {
         return array.length;
     }
 
@@ -126,7 +126,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     //перетворює колекцію до масиву обєктів
     @Override
-    public Object[] toArray(){
+    public Object[] toArray() {
         Object[] arraynew = new Object[size()];
         System.arraycopy(array, 0, arraynew, 0, size());
         return arraynew;
@@ -134,7 +134,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     //повертає рядок, де через кому відображаютсься елементи колекції
     @Override
-    public String toString(){
+    public String toString() {
         return Arrays.toString(array);
     }
 

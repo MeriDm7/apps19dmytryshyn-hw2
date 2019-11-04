@@ -145,8 +145,8 @@ public class ImmutableLinkedList implements ImmutableList {
     // та кидає виключну ситуацію, якщо індекс
     // виходить за межі колекції
     @Override
-    public ImmutableList set(int index, Object e){
-        if (this.len == 0){
+    public ImmutableList set(int index, Object e) {
+        if (this.len == 0) {
             throw new IndexOutOfBoundsException();
         }
         indx(index);
@@ -160,7 +160,7 @@ public class ImmutableLinkedList implements ImmutableList {
     //шукає індекс елемента (повертає індекс
     // першого який знайшов, або -1 у випадку відсутності)
     @Override
-    public int indexOf(Object e){
+    public int indexOf(Object e) {
         Node current = this.head;
         for (int i = 0; i < this.len; i++) {
             if (current.value == e) {
@@ -173,20 +173,20 @@ public class ImmutableLinkedList implements ImmutableList {
 
     //розмір колекції
     @Override
-    public int size(){
+    public int size() {
         return this.len;
     }
 
     //очищує вміст колекції
     @Override
-    public ImmutableList clear(){
+    public ImmutableList clear() {
         return new ImmutableLinkedList();
     }
 
     //якщо у колеції нема елементів то повертає true
     @Override
-    public boolean isEmpty(){
-        if (len == 0){
+    public boolean isEmpty() {
+        if (len == 0) {
             return true;
         }
         return false;
@@ -194,7 +194,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     //перетворює колекцію до масиву обєктів
     @Override
-    public Object[] toArray(){
+    public Object[] toArray() {
         Object[] res = new Object[len];
         Node current = this.head;
         for (int i = 0; i < len; i++) {
@@ -207,7 +207,7 @@ public class ImmutableLinkedList implements ImmutableList {
     //повертає рядок, де через кому
     // відображаютсься елементи колекції
     @Override
-    public String toString(){
+    public String toString() {
         if (this.len == 0) {
             return "";
         }
@@ -224,7 +224,7 @@ public class ImmutableLinkedList implements ImmutableList {
         return addAll(0, new Object[] {e});
     }
 
-    public ImmutableLinkedList addLast(Object e){
+    public ImmutableLinkedList addLast(Object e) {
         return addAll(this.len, new Object[] {e});
     }
 
