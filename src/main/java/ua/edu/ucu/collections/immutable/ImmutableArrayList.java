@@ -127,9 +127,9 @@ public class ImmutableArrayList implements ImmutableList {
     //перетворює колекцію до масиву обєктів
     @Override
     public Object[] toArray(){
-        Object[] array = new Object[size()];
-        System.arraycopy(array, 0, array, 0, size());
-        return array;
+        Object[] arraynew = new Object[size()];
+        System.arraycopy(array, 0, arraynew, 0, size());
+        return arraynew;
     }
 
     //повертає рядок, де через кому відображаютсься елементи колекції
