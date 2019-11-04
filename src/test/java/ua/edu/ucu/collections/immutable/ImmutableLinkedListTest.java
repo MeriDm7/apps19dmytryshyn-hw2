@@ -190,4 +190,40 @@ public class ImmutableLinkedListTest {
         Object res = empty.getFirst();
     }
 
+    @Test
+    public void testGetLast(){
+        Object res = lst.getLast();
+        Object exp = 3;
+        assertEquals(exp, res);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetLastException(){
+        Object res = empty.getLast();
+    }
+
+    @Test
+    public void testRemoveFirst(){
+        ImmutableLinkedList res = lst.removeFirst();
+        ImmutableLinkedList exp = new ImmutableLinkedList(new Object[] {2, 3});
+        assertArrayEquals(exp.toArray(), res.toArray());
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveFirstException(){
+        ImmutableLinkedList res = empty.removeFirst();
+    }
+
+    @Test
+    public void testRemoveLast(){
+        ImmutableLinkedList res = lst.removeLast();
+        ImmutableLinkedList exp = new ImmutableLinkedList(new Object[] {1, 2});
+        assertArrayEquals(exp.toArray(), res.toArray());
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveLastException(){
+        ImmutableLinkedList res = empty.removeLast();
+    }
+
 }
