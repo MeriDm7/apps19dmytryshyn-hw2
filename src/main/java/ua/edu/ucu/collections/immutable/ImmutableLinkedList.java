@@ -26,7 +26,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     private Node getNode(int index) {
-        Indx(index);
+        indx(index);
         Node current = this.head;
         for (int i = 0; i < index; i++) {
             current = current.next;
@@ -51,7 +51,7 @@ public class ImmutableLinkedList implements ImmutableList {
        }
     }
 
-    private void Indx(int index) throws IndexOutOfBoundsException {
+    private void indx(int index) throws IndexOutOfBoundsException {
         if (index > size() || index < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -95,7 +95,7 @@ public class ImmutableLinkedList implements ImmutableList {
     // додає масив елементів починаючи з зазначеного індекса, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public  ImmutableLinkedList addAll(int index, Object[] c) {
-        Indx(index);
+        indx(index);
         ImmutableLinkedList newlst = copy();
         newlst.len = this.len + c.length;
         newlst.head = new Node(null, newlst.head);
@@ -111,14 +111,14 @@ public class ImmutableLinkedList implements ImmutableList {
     //повертає елемент за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public Object get(int index){
-        Indx(index);
+        indx(index);
         return getNode(index).value;
     }
 
     //видаляє елемент за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public ImmutableLinkedList remove(int index){
-        Indx(index);
+        indx(index);
         ImmutableLinkedList lstnew = copy();
         lstnew.len = this.len - 1;
         if (index == 0) {
@@ -134,7 +134,7 @@ public class ImmutableLinkedList implements ImmutableList {
     //змінює значення елементу за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public ImmutableList set(int index, Object e){
-        Indx(index);
+        indx(index);
         ImmutableLinkedList lstnew = copy();
         lstnew.len = this.len;
         Node cur = lstnew.getNode(index);
