@@ -5,6 +5,23 @@ public class ImmutableLinkedList implements ImmutableList {
     private  Node head;
     private int len;
 
+    public ImmutableLinkedList() {
+        this.head = null;
+        this.len = 0;
+    }
+
+    public ImmutableLinkedList(Object[] c) {
+        this.len = c.length;
+        if (c.length != 0){
+            this.head = new Node(c[0]);
+            Node current = this.head;
+            for (int i = 1; i < c.length; i++) {
+                current.next = new Node(c[i]);
+                current = current.next;
+            }
+        }
+    }
+
     private static class Node {
         private Object value;
         private Node next;
@@ -32,23 +49,6 @@ public class ImmutableLinkedList implements ImmutableList {
             current = current.next;
         }
         return current;
-    }
-
-    public ImmutableLinkedList() {
-        this.head = null;
-        this.len = 0;
-    }
-
-    public ImmutableLinkedList(Object[] c) {
-        this.len = c.length;
-        if (c.length != 0){
-           this.head = new Node(c[0]);
-           Node current = this.head;
-           for (int i = 1; i < c.length; i++) {
-               current.next = new Node(c[i]);
-               current = current.next;
-           }
-       }
     }
 
     private void indx(int index) throws IndexOutOfBoundsException {
@@ -80,7 +80,8 @@ public class ImmutableLinkedList implements ImmutableList {
         return addAll(this.len, new Object[] {e});
     }
 
-    //додає елемент до колекції за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
+    //додає елемент до колекції за індексом,
+    // та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public ImmutableLinkedList add(int index, Object e){
         return addAll(index, new Object[] {e});
@@ -92,7 +93,8 @@ public class ImmutableLinkedList implements ImmutableList {
         return addAll(this.len, c);
     }
 
-    // додає масив елементів починаючи з зазначеного індекса, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
+    // додає масив елементів починаючи з зазначеного індекса,
+    // та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
     public  ImmutableLinkedList addAll(int index, Object[] c) {
         indx(index);
@@ -108,7 +110,8 @@ public class ImmutableLinkedList implements ImmutableList {
         return newlst;
     }
 
-    //повертає елемент за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
+    //повертає елемент за індексом, та кидає виключну
+    // ситуацію, якщо індекс виходить за межі колекції
     @Override
     public Object get(int index){
         if (this.len == 0){
@@ -118,7 +121,8 @@ public class ImmutableLinkedList implements ImmutableList {
         return getNode(index).value;
     }
 
-    //видаляє елемент за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
+    //видаляє елемент за індексом, та кидає виключну
+    // ситуацію, якщо індекс виходить за межі колекції
     @Override
     public ImmutableLinkedList remove(int index){
         indx(index);
@@ -137,7 +141,9 @@ public class ImmutableLinkedList implements ImmutableList {
         return lstnew;
     }
 
-    //змінює значення елементу за індексом, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
+    //змінює значення елементу за індексом,
+    // та кидає виключну ситуацію, якщо індекс
+    // виходить за межі колекції
     @Override
     public ImmutableList set(int index, Object e){
         if (this.len == 0){
@@ -151,7 +157,8 @@ public class ImmutableLinkedList implements ImmutableList {
         return lstnew;
     }
 
-    //шукає індекс елемента (повертає індекс першого який знайшов, або -1 у випадку відсутності)
+    //шукає індекс елемента (повертає індекс
+    // першого який знайшов, або -1 у випадку відсутності)
     @Override
     public int indexOf(Object e){
         Node current = this.head;
@@ -197,7 +204,8 @@ public class ImmutableLinkedList implements ImmutableList {
         return res;
     }
 
-    //повертає рядок, де через кому відображаютсься елементи колекції
+    //повертає рядок, де через кому
+    // відображаютсься елементи колекції
     @Override
     public String toString(){
         if (this.len == 0) {

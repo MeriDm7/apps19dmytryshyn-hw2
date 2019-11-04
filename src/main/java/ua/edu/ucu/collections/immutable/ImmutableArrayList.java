@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class ImmutableArrayList implements ImmutableList{
     protected final Object[] array_list;
 
-    public ImmutableArrayList(Object[] array_listlst) {
-        this.array_list = array_listlst;
+    public ImmutableArrayList(Object[] array_list) {
+        this.array_list = array_list;
     }
 
     public ImmutableArrayList(){
@@ -44,17 +44,17 @@ public class ImmutableArrayList implements ImmutableList{
     @Override
     public ImmutableList addAll(int index, Object[] c){
         indx(index);
-        Object[] new_array_list = new Object[size() + c.length];
+        Object[] newarraylist = new Object[size() + c.length];
         for (int i = 0; i < index; i++) {
-            new_array_list[i] = array_list[i];
+            newarraylist[i] = array_list[i];
         }
         for (int i = 0; i < c.length; i++) {
-            new_array_list[index + i] = c[i];
+            newarraylist[index + i] = c[i];
         }
         for (int i = index; i < size(); i++) {
-            new_array_list[i + c.length] = array_list[i];
+            newarraylist[i + c.length] = array_list[i];
         }
-        return new ImmutableArrayList(new_array_list);
+        return new ImmutableArrayList(newarraylist);
     }
 
     //повертає елемент за індексом, та кидає виключну ситуацію,
@@ -70,14 +70,14 @@ public class ImmutableArrayList implements ImmutableList{
     @Override
     public ImmutableList remove(int index){
         indx(index);
-        Object[] new_array_list =  new Object[size() - 1];
+        Object[] newarraylist =  new Object[size() - 1];
         for (int i = 0; i < index; i++){
-            new_array_list[i] = array_list[i];
+            newarraylist[i] = array_list[i];
         }
         for (int i = index + 1; i < size(); i++) {
-            new_array_list[i - 1] = array_list[i];
+            newarraylist[i - 1] = array_list[i];
         }
-        return new ImmutableArrayList(new_array_list);
+        return new ImmutableArrayList(newarraylist);
     }
 
     //змінює значення елементу за індексом, та кидає
@@ -85,10 +85,10 @@ public class ImmutableArrayList implements ImmutableList{
     @Override
     public ImmutableList set(int index, Object e){
         indx(index);
-        Object[] new_array_list = new Object[size()];
-        System.arraycopy(array_list, 0, new_array_list, 0, size());
-        new_array_list[index] = e;
-        return new ImmutableArrayList(new_array_list);
+        Object[] newarraylist = new Object[size()];
+        System.arraycopy(array_list, 0, newarraylist, 0, size());
+        newarraylist[index] = e;
+        return new ImmutableArrayList(newarraylist);
     }
 
     //шукає індекс елемента (повертає індекс першого
