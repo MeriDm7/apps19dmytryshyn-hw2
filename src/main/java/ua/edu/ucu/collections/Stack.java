@@ -13,17 +13,19 @@ public class Stack {
         this.stack = stack;
     }
 
-    public Object peek() {
+    public void checkSize() throws IndexOutOfBoundsException {
         if (stack.size() == 0) {
             throw new IndexOutOfBoundsException();
         }
+    }
+
+    public Object peek() {
+        checkSize();
         return stack.getLast();
     }
 
     public Object pop() {
-        if (stack.size() == 0) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkSize();
         Object last = stack.getLast();
         this.stack = this.stack.removeLast();
         return last;

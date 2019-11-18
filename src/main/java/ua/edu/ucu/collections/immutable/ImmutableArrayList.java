@@ -21,7 +21,8 @@ public class ImmutableArrayList implements ImmutableList {
 
     //додає елемент у кінець колекції
     @Override
-    public ImmutableList add(Object e) {
+    public ImmutableArrayList add(Object e) {
+
         return addAll(size(), new Object[] {e});
         }
 
@@ -29,20 +30,20 @@ public class ImmutableArrayList implements ImmutableList {
     //додає елемент до колекції за індексом, та кидає виключну
     // ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList add(int index, Object e) {
+    public ImmutableArrayList add(int index, Object e) {
         return addAll(index, new Object[] {e});
     }
 
     //додає масив елементів у кінець колекції
     @Override
-    public ImmutableList addAll(Object[] c) {
+    public ImmutableArrayList addAll(Object[] c) {
         return addAll(size(), c);
     }
 
     // додає масив елементів починаючи з зазначеного індекса,
     // та кидає виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList addAll(int index, Object[] c) {
+    public ImmutableArrayList addAll(int index, Object[] c) {
         indx(index);
         Object[] newarraylist = new Object[size() + c.length];
         for (int i = 0; i < index; i++) {
@@ -83,7 +84,7 @@ public class ImmutableArrayList implements ImmutableList {
     //змінює значення елементу за індексом, та кидає
     // виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList set(int index, Object e) {
+    public ImmutableArrayList set(int index, Object e) {
         indx(index);
         Object[] newarraylist = new Object[size()];
         System.arraycopy(array, 0, newarraylist, 0, size());
@@ -96,7 +97,7 @@ public class ImmutableArrayList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < size(); i++) {
-            if (array[i] == e) {
+            if (array[i].equals(e)) {
                 return i;
             }
         }

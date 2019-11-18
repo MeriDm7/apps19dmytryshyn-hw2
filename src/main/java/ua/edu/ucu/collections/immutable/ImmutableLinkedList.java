@@ -163,7 +163,7 @@ public class ImmutableLinkedList implements ImmutableList {
     public int indexOf(Object e) {
         Node current = this.head;
         for (int i = 0; i < this.len; i++) {
-            if (current.value == e) {
+            if (current.value.equals(e)) {
                 return i;
             }
             current = current.next;
@@ -243,8 +243,4 @@ public class ImmutableLinkedList implements ImmutableList {
     public ImmutableLinkedList removeLast() {
         return remove(this.len - 1);
     }
-
-
-
-
 }

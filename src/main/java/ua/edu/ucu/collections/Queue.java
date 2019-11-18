@@ -13,20 +13,22 @@ public class Queue {
         this.queue = queue;
     }
 
-    public Object peek() {
-        if (queue.size() > 0) {
-            return queue.getFirst();
+    public void checkSize() throws IndexOutOfBoundsException {
+        if (queue.size() == 0) {
+            throw new IndexOutOfBoundsException();
         }
-        throw new IndexOutOfBoundsException();
+    }
+
+    public Object peek() {
+        checkSize();
+        return queue.getFirst();
     }
 
     public Object dequeue() {
-        if (queue.size() > 0) {
-            Object first = queue.getFirst();
-            queue = queue.removeFirst();
-            return first;
-        }
-        throw new IndexOutOfBoundsException();
+        checkSize();
+        Object first = queue.getFirst();
+        queue = queue.removeFirst();
+        return first;
     }
 
     public void enqueue(Object e) {
