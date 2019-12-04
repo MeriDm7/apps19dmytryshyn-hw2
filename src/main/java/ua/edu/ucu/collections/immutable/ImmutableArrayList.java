@@ -69,7 +69,7 @@ public class ImmutableArrayList implements ImmutableList {
     //видаляє елемент за індексом, та кидає виключну
     // ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList remove(int index) {
+    public ImmutableArrayList remove(int index) {
         indx(index);
         Object[] newarraylist =  new Object[size() - 1];
         for (int i = 0; i < index; i++) {
@@ -112,7 +112,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     //очищує вміст колекції
     @Override
-    public  ImmutableList clear() {
+    public  ImmutableArrayList clear() {
         return new ImmutableArrayList();
     }
 

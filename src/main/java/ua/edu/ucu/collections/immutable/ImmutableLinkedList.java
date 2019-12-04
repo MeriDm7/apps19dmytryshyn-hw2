@@ -145,7 +145,7 @@ public class ImmutableLinkedList implements ImmutableList {
     // та кидає виключну ситуацію, якщо індекс
     // виходить за межі колекції
     @Override
-    public ImmutableList set(int index, Object e) {
+    public ImmutableLinkedList set(int index, Object e) {
         if (this.len == 0) {
             throw new IndexOutOfBoundsException();
         }
